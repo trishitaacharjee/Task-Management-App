@@ -1,0 +1,17 @@
+{
+  "name": "Toki — plan, do, done",
+  "short_name": "Toki",
+  "description": "A cute, clean planner with tasks and a daily diary.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fff7fa",
+  "theme_color": "#ff6fa5",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/icons/icon-64.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

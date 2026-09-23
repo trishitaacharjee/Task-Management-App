@@ -1,18 +1,18 @@
 import { API_BASE_URL } from '../config';
 
-// Every entity's API module calls through this, so request/error handling
-// stays consistent across the whole app.
 export async function request(path, options = {}) {
-  const res = await fetch(`${API_BASE_URL}${path}`, {
-    headers: { 'Content-Type': 'application/json' },
-    ...options,
-  });
+  const headers = { ...(options.headers || {}) };
+  if (options.body && !(options.body instanceof FormData)) headers['Content-Type'] = 'application/json';
 
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}));
-    throw new Error(body.error || `Request failed with status ${res.status}`);
+  const response = await fetch(`${API_BASE_URL}${path}`, { ...options, headers });
+  const contentType = response.headers.get('content-type') || '';
+  const data = response.status === 204 ? null : contentType.includes('application/json')
+    ? await response.json()
+    : await response.text();
+
+  if (!response.ok) {
+    const message = data?.error || data?.message || `Request failed (${response.status})`;
+    throw new Error(message);
   }
-
-  if (res.status === 204) return null;
-  return res.json();
+  return data;
 }

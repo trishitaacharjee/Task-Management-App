@@ -16,6 +16,10 @@ export function TaskList({ tasks, onChange, emptyMessage = 'Nothing here yet.' }
     onChange((prev) => prev.filter((t) => t.id !== id));
   }
 
+  function handleEdited(updated) {
+    onChange((prev) => prev.map((t) => (t.id === updated.id ? updated : t)));
+  }
+
   if (tasks.length === 0) {
     return <p className="task-list__empty">{emptyMessage}</p>;
   }
@@ -23,7 +27,13 @@ export function TaskList({ tasks, onChange, emptyMessage = 'Nothing here yet.' }
   return (
     <ul className="task-list">
       {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} onToggle={handleToggle} onDelete={handleDelete} />
+        <TaskItem
+          key={task.id}
+          task={task}
+          onToggle={handleToggle}
+          onDelete={handleDelete}
+          onEdited={handleEdited}
+        />
       ))}
     </ul>
   );
