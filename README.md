@@ -54,36 +54,4 @@ Task-Management-App/
 └── README.md
 
 
-## Running Locally
 
-## 1. Clone the repository
-
-git clone https://github.com/trishitaacharjee/Task-Management-App.git
-cd Task-Management-App
-
-## 2. Start the Backend
-
-cd backend
-npm install
-npm run dev
-
-3. Start the Frontend
-
-Open another terminal:
-cd frontend
-npm install
-npm run dev
-
-Then open the local URL shown by Vite in your browser.
-
-# Deployment
-
-Toki is deployed as a full-stack application on Render.
-Live Website:
-https://task-management-app-ij4q.onrender.com
-
-# Author
-
-Trishita Acharjee
-GitHub: https://github.com/trishitaacharjee
-LinkedIn: https://www.linkedin.com/in/trishita-acharjee18/
