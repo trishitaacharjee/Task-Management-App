@@ -1,21 +1,39 @@
-# Toki — Task Manager, Diary & Productivity App
+# Toki — Task Manager App
 
-Toki is a soft, pastel productivity app with tasks, notes, diary entries, calendar, stats, settings, sound effects, notifications and local browser voice input.
+Toki is a clean productivity app for managing tasks, calendar events, diary entries, and adding tasks i'e everyday to do list.
+
+## 🌐 Live Website
+
+**[Open Toki](https://task-management-app-ij4q.onrender.com)**
 
 ## Features
-- Reference-style compact pastel task cards
-- Different pastel color per task
-- Cute SVG animal stickers
-- Task notes that expand inside the task card
-- Three-dot task menu with Notes/Delete
-- Toki-styled delete confirmation modal
-- Multiple diary entries per day with persistent JSON storage
-- Compact calendar and task statistics
-- Dark mode, sound effects and notifications
-- Voice input using `MediaRecorder` + local Whisper through Transformers.js
-- No OpenAI API key required for voice
+-  Create, complete, edit, and delete tasks
+-  Add notes to tasks
+-  Calendar for events and schedules
+-  Personal diary with date-based entries
+-  Voice-to-task input
+-  Task status and progress
+-  Light and dark mode
+-  Responsive design for desktop and mobile
+-  Kawaii, gender-neutral interface
+-  Backend API for tasks, diary, and calendar data
 
-## Run locally
+## Tech Stack
+
+### Frontend
+- React
+- Vite
+- JavaScript
+- CSS
+- Hugging Face Transformers.js
+- Whisper Tiny for local voice transcription
+
+### Backend
+- Node.js
+- Express.js
+- REST API
+- CORS
+- JSON-based data storage
 
 ### Backend
 ```powershell
@@ -32,10 +50,19 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:5173`.
+## Project Structure
 
-## Voice input
-The first voice transcription downloads and caches the local Whisper model. No paid speech API key is needed. Allow microphone access for `localhost` in the browser.
-
-## Data
-The backend stores tasks and diary entries in `backend/data/tasks.json` and `backend/data/diary.json`.
+```text
+Task-Management-App/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── src/
+│   ├── data/
+│   └── package.json
+│
+└── README.md
